@@ -1,0 +1,14 @@
+import static io.restassured.RestAssured.*;
+
+import org.junit.Test;
+
+public class MyFirstTest {
+	
+	@Test
+	public void fistTest() {
+		given()
+		.when().get("http://localhost:8080/app/videogames/1")
+		.then().statusCode(200);
+	}
+
+}

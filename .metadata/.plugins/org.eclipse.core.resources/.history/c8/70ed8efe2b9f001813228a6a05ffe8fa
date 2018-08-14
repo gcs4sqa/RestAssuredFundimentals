@@ -1,0 +1,34 @@
+package config;
+
+import org.junit.BeforeClass;
+
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.RequestSpecification;
+
+public class TestConfig {
+	
+	@BeforeClass
+	public static void setup() {
+		RestAssured.baseURI="http://localhost";
+		RestAssured.port=8080;
+		RestAssured.basePath="/app/";
+		
+		
+		//use the following line if using a proxy server
+		//RestAssured.proxy("localhost",8888);
+		
+		RequestSpecification requestspecification = new RequestSpecBuilder()
+				.addHeader("content-type", "application/json")
+				.addHeader("Accept", "application/json");
+				
+		
+				
+		
+		
+		
+		
+	}
+	
+
+}

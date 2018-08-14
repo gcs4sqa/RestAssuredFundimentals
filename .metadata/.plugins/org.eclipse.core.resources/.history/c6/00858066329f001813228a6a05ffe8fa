@@ -1,0 +1,18 @@
+
+import static io.restassured.RestAssured.*;
+
+import org.junit.Test;
+
+import config.EndPoint;
+import config.TestConfig;
+
+public class VideoGameDBTests extends TestConfig {
+	
+	@Test
+	public void getAllGames() {
+		given()
+		.when().get(EndPoint.VIDEOGAMES)
+		.then();
+	}
+
+}

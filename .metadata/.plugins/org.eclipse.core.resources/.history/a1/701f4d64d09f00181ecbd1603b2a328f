@@ -1,0 +1,102 @@
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import org.junit.Test;
+
+import config.EndPoint;
+import config.TestConfig;
+
+public class VideoGameDBTests extends TestConfig {
+	
+	@Test
+	public void getAllGames() {
+		given()
+		.when()
+			.get(EndPoint.VIDEOGAMES)
+		.then();
+	}
+	
+	@Test
+	public void createNewGamebyJSON() {
+		
+		String gameBodyJSON = "{\n" + 
+				"  \"id\": 11,\n" + 
+				"  \"name\": \"myNewGame\",\n" + 
+				"  \"releaseDate\": \"2018-08-13T18:47:42.606Z\",\n" + 
+				"  \"reviewScore\": 50,\n" + 
+				"  \"category\": \"driving\",\n" + 
+				"  \"rating\": \"Mature\"\n" + 
+				"}";
+		
+		given()
+			.body(gameBodyJSON)
+		.when()
+			.post(EndPoint.VIDEOGAMES)
+		.then();
+	
+	
+	}
+	
+	@Test
+	public void updateGame() {
+		
+		String gameBodyJSON = "{\n" + 
+				"  \"id\": 11,\n" + 
+				"  \"name\": \"myUpdatedGame\",\n" + 
+				"  \"releaseDate\": \"2018-08-13T18:47:42.606Z\",\n" + 
+				"  \"reviewScore\": 99,\n" + 
+				"  \"category\": \"driving\",\n" + 
+				"  \"rating\": \"Mature\"\n" + 
+				"}";
+		
+		given()
+			.body(gameBodyJSON)
+		.when()
+			.put("/videogames/11")
+		.then();
+		
+	}
+	
+	@Test
+	public void deleteGame() {
+		given()
+			.spec(videoGame_RequestSpec)
+		.when()
+			.delete("/videogames/9")
+		.then()
+			.spec(ResponseSpec);
+	}
+	
+	@Test
+	public void getSingleGame() {
+		given()
+			.pathParam("videoGameParam", 5)
+		.when()
+			.get(EndPoint.SINGLE_VIDEOGAME)
+		.then();
+	}
+	
+	@Test 
+	public void testVideoGameSerialisationByJSON() {
+		VideoGame videogame = new VideoGame("15", "shooter", "2005-06-04", "Halo 7", "Mature", "90");
+		
+		given()
+			.body(videogame)
+			.when()
+			.post(EndPoint.VIDEOGAMES)
+		.then();
+		
+	}
+	
+	@Test
+	public void testVideoGameSchemaJSON() {
+		
+		given()
+			.pathParam("videoGameParam", 5)
+		.when()
+			.get(EndPoint.SINGLE_VIDEOGAME)
+		.then()
+			.body(matchesJsonSchemaInClasspath("VideoGamesSchema.json"));
+	}
+
+}

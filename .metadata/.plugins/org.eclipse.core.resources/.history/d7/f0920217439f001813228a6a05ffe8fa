@@ -1,0 +1,22 @@
+import static io.restassured.RestAssured.*;
+
+import org.junit.Test;
+
+import config.TestConfig;
+
+
+public class FootballTests extends TestConfig{
+	
+	@Test
+	public void getAllCompetitonsOneSeason() {
+		given()
+		.spec(football_RequestSpec)
+		.queryParam("season", 2016)
+		.when()
+		.get("competitions/")
+		.then();
+	}
+	
+	
+
+}

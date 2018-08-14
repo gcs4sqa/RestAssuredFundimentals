@@ -1,0 +1,92 @@
+import static io.restassured.RestAssured.*;
+
+import org.junit.Test;
+
+import config.TestConfig;
+import io.restassured.http.ContentType;
+import io.restassured.http.Headers;
+import io.restassured.response.Response;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+
+import java.util.List;
+
+
+
+public class FootballTests extends TestConfig{
+	
+	@Test
+	public void getAllCompetitonsOneSeason() {
+		given()
+			.spec(football_RequestSpec)
+			.queryParam("season", 2016)
+		.when()
+		.get("competitions/")
+		.then();
+	}
+	
+	@Test
+	public void getTeamCount() {
+		given()
+			.spec(football_RequestSpec)
+		.when()
+			.get("competitions/426/teams")
+		.then()
+			.body("count", equalTo(20));
+	}
+	
+	
+	@Test
+	public void getFirstTeamName() {
+		given()
+		.spec(football_RequestSpec)
+	.when()
+		.get("competitions/426/teams")
+	.then()
+		.body("teams.name[0]", equalTo("Hull City FC"));
+	}
+	
+	@Test
+	public void getAllTeamData() {
+		String ResponseBody = given().spec(football_RequestSpec).when().get("competitions/426/teams").asString();
+		System.out.println(ResponseBody);		
+
+		
+	}
+	
+	@Test
+	public void getAllTeamDataCheckFirst() {
+		Response response = 
+				given()
+					.spec(football_RequestSpec)
+				.when()
+					.get("competitions/426/teams")
+				.then()
+					.contentType(ContentType.JSON)
+					.extract().response();
+		
+		String JSONResponse = response.asString();
+		
+	}
+	
+	@Test
+	public void getAllHeaders() {
+		
+		Response response = 
+				given()
+					.spec(football_RequestSpec)
+				.when()
+					.get("competitions/426/teams")
+				.then()
+					.contentType(ContentType.JSON)
+					.extract().response();
+		
+		Headers headers = response.getHeaders();
+		
+		
+	}
+	
+	
+	
+
+}

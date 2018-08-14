@@ -1,0 +1,16 @@
+import static io.restassured.RestAssured.*;
+
+import org.junit.Test;
+
+import config.TestConfig;
+
+public class MyFirstTest extends TestConfig {
+	
+	@Test
+	public void fistTest() {
+		given()
+		.when().get("videogame/1")
+		.then().statusCode(200);
+	}
+
+}

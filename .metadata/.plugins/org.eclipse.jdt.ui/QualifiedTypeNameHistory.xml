@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.junit.BeforeClass"/>
+<fullyQualifiedTypeName name="io.restassured.specification.RequestSpecification"/>
+<fullyQualifiedTypeName name="io.restassured.specification.ResponseSpecification"/>
+<fullyQualifiedTypeName name="io.restassured.builder.ResponseSpecBuilder"/>
+<fullyQualifiedTypeName name="config.EndPoint"/>
+<fullyQualifiedTypeName name="VideoGameDBTests"/>
+<fullyQualifiedTypeName name="io.restassured.builder.RequestSpecBuilder"/>
+<fullyQualifiedTypeName name="io.restassured.RestAssured"/>
+<fullyQualifiedTypeName name="config.TestConfig"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="org.hamcrest.Matcher"/>
+<fullyQualifiedTypeName name="org.hamcrest.CoreMatchers"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="io.restassured.response.Response"/>
+<fullyQualifiedTypeName name="io.restassured.http.ContentType"/>
+<fullyQualifiedTypeName name="io.restassured.http.Headers"/>
+</qualifiedTypeNameHistroy>

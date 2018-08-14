@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GPathJSONTest" project="football.api" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="GPathJSONTest" time="3.552">
+    <testcase name="extractMapOfElementsWithFind" classname="GPathJSONTest" time="2.577"/>
+    <testcase name="extractListOfValueWithFindAll" classname="GPathJSONTest" time="0.68"/>
+    <testcase name="extractSingleValueWithFind" classname="GPathJSONTest" time="0.295"/>
+  </testsuite>
+</testrun>

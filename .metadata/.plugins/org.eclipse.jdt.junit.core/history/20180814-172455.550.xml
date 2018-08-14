@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GPathJSONTest" project="football.api" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="GPathJSONTest" time="4.371">
+    <testcase name="extractMapOfElementsWithFind" classname="GPathJSONTest" time="2.452"/>
+    <testcase name="extractMapOfObjectWithFindAndFindAll" classname="GPathJSONTest" time="0.387"/>
+    <testcase name="extractSingleValueWithHighestNumber" classname="GPathJSONTest" time="0.248"/>
+    <testcase name="extractListOfValueWithFindAll" classname="GPathJSONTest" time="0.228"/>
+    <testcase name="extractMultipleValuesAndSumThem" classname="GPathJSONTest" time="0.239"/>
+    <testcase name="extractSingleValueWithFind" classname="GPathJSONTest" time="0.816"/>
+  </testsuite>
+</testrun>

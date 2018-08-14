@@ -1,0 +1,54 @@
+package config;
+
+import org.junit.BeforeClass;
+
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+
+public class TestConfig {
+	
+	public static RequestSpecification videoGame_RequestSpec;
+	public static RequestSpecification football_RequestSpec;
+	public static ResponseSpecification ResponseSpec;
+	
+	@BeforeClass
+	public static void setup() {
+		
+		RestAssured.proxy("localhost", 8888);
+		
+		videoGame_RequestSpec = new RequestSpecBuilder()
+				.setBaseUri("http://localhost")
+				.setPort(8080)
+				.setBasePath("/app/")
+				.addHeader("content-type", "application/json")
+				.addHeader("Accept", "application/json")
+				.build();
+		
+		RestAssured.requestSpecification = videoGame_RequestSpec;
+		
+	
+		
+		football_RequestSpec = new RequestSpecBuilder()
+				.setBaseUri("http://api.football-data.org")
+				.setBasePath("/v1/")
+				.addHeader("X-Auth-Token", "3d78f52315bd4db387610f1db48a2d63")
+				.addHeader("X-Response-Controls", "minified")
+				
+				.build();
+		
+		
+		
+		//this is a common response spec
+		ResponseSpec = new ResponseSpecBuilder()
+			.expectStatusCode(200)
+			.build();
+		
+		RestAssured.responseSpecification = ResponseSpec;
+		
+	}
+	
+
+}

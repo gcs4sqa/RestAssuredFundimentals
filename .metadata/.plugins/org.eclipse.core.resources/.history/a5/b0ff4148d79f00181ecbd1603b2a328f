@@ -1,0 +1,27 @@
+
+import static io.restassured.RestAssured.*;
+
+import org.junit.Test;
+
+import config.TestConfig;
+import io.restassured.response.Response;
+
+import java.util.Map;
+
+public class GPathJSONTest extends TestConfig{
+	
+	@Test
+	public void extractMapOfElementsWithFind() {
+		
+		Response response = get("/competitions/426/teams");
+		
+		Map<String, ?> allTeamDataForSingleTeam = response
+				.path("teams.find { it.name == 'Leicester City FC' }");
+		
+		System.out.println(allTeamDataForSingleTeam);
+		
+	}
+	
+	
+
+}

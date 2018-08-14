@@ -1,0 +1,60 @@
+
+import static io.restassured.RestAssured.*;
+
+import org.junit.Test;
+
+import config.EndPoint;
+import config.TestConfig;
+
+public class VideoGameDBTests extends TestConfig {
+	
+	@Test
+	public void getAllGames() {
+		given()
+		.when()
+			.get(EndPoint.VIDEOGAMES)
+		.then();
+	}
+	
+	@Test
+	public void createNewGamebyJSON() {
+		
+		String gameBodyJSON = "{\n" + 
+				"  \"id\": 11,\n" + 
+				"  \"name\": \"myNewGame\",\n" + 
+				"  \"releaseDate\": \"2018-08-13T18:47:42.606Z\",\n" + 
+				"  \"reviewScore\": 50,\n" + 
+				"  \"category\": \"driving\",\n" + 
+				"  \"rating\": \"Mature\"\n" + 
+				"}";
+		
+		given()
+			.body(gameBodyJSON)
+		.when()
+			.post(EndPoint.VIDEOGAMES)
+			.then();
+	
+	
+	}
+	
+	@Test
+	public void updateGame() {
+		
+		String gameBodyJSON = "{\n" + 
+				"  \"id\": 11,\n" + 
+				"  \"name\": \"myUpdatedGame\",\n" + 
+				"  \"releaseDate\": \"2018-08-13T18:47:42.606Z\",\n" + 
+				"  \"reviewScore\": 99,\n" + 
+				"  \"category\": \"driving\",\n" + 
+				"  \"rating\": \"Mature\"\n" + 
+				"}";
+		
+		given()
+			.body(gameBodyJSON)
+		.when()
+			.post("/videogames/11")
+		.then();
+		
+	}
+
+}
