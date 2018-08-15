@@ -7,13 +7,16 @@
 <fullyQualifiedTypeName name="config.EndPoint"/>
 <fullyQualifiedTypeName name="VideoGameDBTests"/>
 <fullyQualifiedTypeName name="io.restassured.builder.RequestSpecBuilder"/>
+<fullyQualifiedTypeName name="org.hamcrest.Matcher"/>
+<fullyQualifiedTypeName name="org.hamcrest.CoreMatchers"/>
+<fullyQualifiedTypeName name="io.restassured.http.ContentType"/>
+<fullyQualifiedTypeName name="io.restassured.http.Headers"/>
+<fullyQualifiedTypeName name="io.restassured.module.jsv.JsonSchemaValidator"/>
+<fullyQualifiedTypeName name="org.hamcrest.Matchers"/>
 <fullyQualifiedTypeName name="io.restassured.RestAssured"/>
 <fullyQualifiedTypeName name="config.TestConfig"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
-<fullyQualifiedTypeName name="org.hamcrest.Matcher"/>
-<fullyQualifiedTypeName name="org.hamcrest.CoreMatchers"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="io.restassured.response.Response"/>
-<fullyQualifiedTypeName name="io.restassured.http.ContentType"/>
-<fullyQualifiedTypeName name="io.restassured.http.Headers"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

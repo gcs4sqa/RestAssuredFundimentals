@@ -84,6 +84,14 @@ public class GPathJSONTest extends TestConfig{
 		
 	}
 	
+	@Test
+	public void extractMultiplePlayers() {
+		
+		Response response = get("teams/66/players");
+		
+		
+	}
+	
 	
 	
 	
